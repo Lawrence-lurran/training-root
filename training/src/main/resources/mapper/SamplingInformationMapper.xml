@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.num.training.mapper.SamplingInformationMapper">
+
+    <resultMap type="com.num.training.domain.entity.SamplingInformationDO" id="SamplingInformationMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="number" column="number" jdbcType="VARCHAR"/>
+        <result property="taskType" column="task_type" jdbcType="VARCHAR"/>
+        <result property="companyContacts" column="company_contacts" jdbcType="VARCHAR"/>
+        <result property="companyPhoneNumber" column="company_phone_number" jdbcType="VARCHAR"/>
+        <result property="companyFax" column="company_fax" jdbcType="VARCHAR"/>
+        <result property="companyPostalCode" column="company_postal_code" jdbcType="VARCHAR"/>
+        <result property="location" column="location" jdbcType="VARCHAR"/>
+        <result property="locationSampleType" column="location_sample_type" jdbcType="VARCHAR"/>
+        <result property="sampleLink" column="sample_link" jdbcType="VARCHAR"/>
+        <result property="sampleLocation" column="sample_location" jdbcType="VARCHAR"/>
+        <result property="locationType" column="location_type" jdbcType="VARCHAR"/>
+        <result property="companyName" column="company_name" jdbcType="VARCHAR"/>
+        <result property="companyLocation" column="company_location" jdbcType="VARCHAR"/>
+        <result property="businessLicense" column="business_license" jdbcType="VARCHAR"/>
+        <result property="legalRepresentative" column="legal_representative" jdbcType="VARCHAR"/>
+        <result property="phoneNumber" column="phone_number" jdbcType="VARCHAR"/>
+        <result property="contacts" column="contacts" jdbcType="VARCHAR"/>
+        <result property="licenseType" column="license_type" jdbcType="VARCHAR"/>
+        <result property="licenseKey" column="license_key" jdbcType="VARCHAR"/>
+        <result property="enterpriseLicenseNumber" column="enterprise_license_number" jdbcType="VARCHAR"/>
+        <result property="isImported" column="is_imported" jdbcType="VARCHAR"/>
+        <result property="originCountry" column="origin_country" jdbcType="VARCHAR"/>
+        <result property="enterpriseLocation" column="enterprise_location" jdbcType="VARCHAR"/>
+        <result property="productName" column="product_name" jdbcType="VARCHAR"/>
+        <result property="productLocation" column="product_location" jdbcType="VARCHAR"/>
+        <result property="productPhoneNumber" column="product_phone_number" jdbcType="VARCHAR"/>
+        <result property="isThirdPartyInformation" column="is_third_party_information" jdbcType="VARCHAR"/>
+        <result property="thirdPartyNature" column="third_party_nature" jdbcType="VARCHAR"/>
+        <result property="thirdPartyLicense" column="third_party_license" jdbcType="VARCHAR"/>
+        <result property="thirdPartyLocation" column="third_party_location" jdbcType="VARCHAR"/>
+        <result property="thirdPartyName" column="third_party_name" jdbcType="VARCHAR"/>
+        <result property="thirdPartyAddress" column="third_party_address" jdbcType="VARCHAR"/>
+        <result property="thirdPartyPhoneNumber" column="third_party_phone_number" jdbcType="VARCHAR"/>
+        <result property="sampleBarcode" column="sample_barcode" jdbcType="VARCHAR"/>
+        <result property="sampleType" column="sample_type" jdbcType="VARCHAR"/>
+        <result property="sampleSource" column="sample_source" jdbcType="VARCHAR"/>
+        <result property="sampleAttribute" column="sample_attribute" jdbcType="VARCHAR"/>
+        <result property="sampleName" column="sample_name" jdbcType="VARCHAR"/>
+        <result property="sampleTrademark" column="sample_trademark" jdbcType="VARCHAR"/>
+        <result property="packageClassification" column="package_classification" jdbcType="VARCHAR"/>
+        <result property="specification" column="specification" jdbcType="VARCHAR"/>
+        <result property="qualityGrade" column="quality_grade" jdbcType="VARCHAR"/>
+        <result property="manufactureDate" column="manufacture_date" jdbcType="TIMESTAMP"/>
+        <result property="qualityPeriod" column="quality_period" jdbcType="VARCHAR"/>
+        <result property="sampleBatchNumber" column="sample_batch_number" jdbcType="VARCHAR"/>
+        <result property="samplePrice" column="sample_price" jdbcType="VARCHAR"/>
+        <result property="samplingDate" column="sampling_date" jdbcType="TIMESTAMP"/>
+        <result property="samplingMethod" column="sampling_method" jdbcType="VARCHAR"/>
+        <result property="storageConditions" column="storage_conditions" jdbcType="VARCHAR"/>
+        <result property="executiveStandard" column="executive_standard" jdbcType="VARCHAR"/>
+        <result property="samplingBase" column="sampling_base" jdbcType="VARCHAR"/>
+        <result property="samplingQuantity" column="sampling_quantity" jdbcType="VARCHAR"/>
+        <result property="preparationSamplingQuantity" column="preparation_sampling_quantity" jdbcType="VARCHAR"/>
+        <result property="preparationSamplingUnit" column="preparation_sampling_unit" jdbcType="VARCHAR"/>
+        <result property="wholeSampleRemarks" column="whole_sample_remarks" jdbcType="VARCHAR"/>
+        <result property="remarks" column="remarks" jdbcType="VARCHAR"/>
+        <result property="samplingPersonName" column="sampling_person_name" jdbcType="VARCHAR"/>
+        <result property="fileNames" column="file_names" jdbcType="VARCHAR"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="taskSource" column="task_source" jdbcType="VARCHAR"/>
+        <result property="submissionClassification" column="submission_classification" jdbcType="VARCHAR"/>
+        <result property="inspectionOrganization" column="inspection_organization" jdbcType="VARCHAR"/>
+        <result property="samplingCompanyName" column="sampling_company_name" jdbcType="VARCHAR"/>
+        <result property="samplingCompanyAddress" column="sampling_company_address" jdbcType="VARCHAR"/>
+        <result property="creatDate" column="creat_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+
+
+    <!--新增所有列-->
+    <insert id="insertNull" keyProperty="id" useGeneratedKeys="true">
+        insert into sampling_information(user_id)
+        values (#{userId})
+    </insert>
+
+
+
+
+
+</mapper>
+

@@ -14,5 +14,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface SamplingInformationMapper extends BaseMapper<SamplingInformationDO> {
 
+    int insertNull(SamplingInformationDO samplingInformationDO);
 }
 

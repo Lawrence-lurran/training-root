@@ -1,13 +1,14 @@
 package com.num.training.domain.entity;
 
-import java.util.Date;
-
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.experimental.Accessors;
+
+import java.util.Date;
 /**
  * (SamplingInformation)表实体类
  *
@@ -19,6 +20,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("sampling_information")
+@Accessors(chain = true)
 public class SamplingInformationDO {
     @TableId(type = IdType.AUTO)
     private Long id;
@@ -151,6 +153,8 @@ public class SamplingInformationDO {
     private String samplingCompanyName;
     
     private String samplingCompanyAddress;
+
+    private Date creatDate;
 
 
 
