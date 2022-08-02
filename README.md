@@ -2,11 +2,11 @@
 # 使用规范
 * 源码库规范
 
-	1、不要提交源码编译后的二进制成果物到'github'！
+	1、不要提交源码编译后的二进制成果物到`github`！
 
   2、`.bak` `Thumbs.db` `output` `.idea` `.svn`等不要上传`github`！
     
-	3、nodejs的引用包，如`node_moudle`目录下的包不要上传`svn`或`gitlab`！
+	3、nodejs的引用包，如`node_moudle`目录下的包不要上传`github`！
 	
 * [日志提交规范]
 
