@@ -14,6 +14,8 @@ import com.num.training.service.ISamplingInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 
 /**
  * (SamplingInformation)表控制层
@@ -34,6 +36,7 @@ public class SamplingInformationController {
     @PostMapping("/add")
     @Log(title = "提交抽样表单",operatorType = OperatorType.MOBILE,businessType = BusinessType.INSERT)
     public ResponseResult<Boolean> add(@RequestBody SamplingInformationDO samplingInformationDO){
+        samplingInformationDO.setCreatDate(new Date());
         boolean save = samplingInformationService.updateById(samplingInformationDO);
         if (!save){
             throw new MyRuntimeException(ResultInfo.SAVE_SAMPLING_INFORMATION_ERROR);
