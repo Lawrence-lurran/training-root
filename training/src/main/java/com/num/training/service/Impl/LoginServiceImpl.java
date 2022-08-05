@@ -2,6 +2,7 @@ package com.num.training.service.Impl;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.num.training.auth.LoginUtil;
 import com.num.training.auth.MyUserDetails;
 import com.num.training.common.ResponseResult;
 import com.num.training.common.ResultInfo;
@@ -109,6 +110,17 @@ public class LoginServiceImpl implements LoginService {
         map.put(Constants.TOKEN,jwt);
         return ResponseResult.success("注册成功",map);
     }
+
+    @Override
+    public ResponseResult<Map<String, Object>> getInfo() {
+        MyUserDetails loginUser = LoginUtil.getLoginUser();
+        Map<String, Object> data = new HashMap<>();
+        data.put("user",loginUser.getUserDO());
+        data.put("roles",loginUser.getRoles());
+        data.put("permissions",loginUser.getPermissions());
+        return ResponseResult.success(data);
+    }
+
     /**
      * 校验验证码
      *

@@ -20,4 +20,6 @@ public interface LoginService {
     ResponseResult<Boolean> logout();
 
     ResponseResult<Map<String, String>> register(LoginBody user);
+
+    public ResponseResult<Map<String ,Object >> getInfo();
 }

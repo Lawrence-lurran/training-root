@@ -2,7 +2,6 @@ package com.num.training.controller;
 
 
 import com.num.training.annotation.Log;
-import com.num.training.auth.MyUserDetails;
 import com.num.training.common.ResponseResult;
 import com.num.training.domain.model.LoginBody;
 import com.num.training.enums.BusinessType;
@@ -11,14 +10,11 @@ import com.num.training.service.LoginService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -57,13 +53,7 @@ public class LoginController {
     @Log(title = "获取用户信息",businessType = BusinessType.QUERY,operatorType = OperatorType.MOBILE)
     @ApiOperation(value = "获取用户信息")
     public ResponseResult<Map<String ,Object >> getInfo() {
-        UsernamePasswordAuthenticationToken authenticationToken = (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
-        MyUserDetails loginUser = (MyUserDetails) authenticationToken.getPrincipal();
-        Map<String, Object> data = new HashMap<>();
-        data.put("user",loginUser.getUserDO());
-        data.put("roles",loginUser.getRoles());
-        data.put("permissions",loginUser.getPermissions());
-        return ResponseResult.success(data);
+        return loginService.getInfo();
     }
 
 }
