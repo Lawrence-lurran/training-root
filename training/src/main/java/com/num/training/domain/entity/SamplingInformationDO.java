@@ -156,6 +156,8 @@ public class SamplingInformationDO {
 
     private Date creatDate;
 
+    private Integer useFlag;
+
 
 
 }
