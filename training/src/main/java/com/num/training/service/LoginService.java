@@ -3,6 +3,7 @@ package com.num.training.service;
 
 import com.num.training.common.ResponseResult;
 import com.num.training.domain.model.LoginBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Map;
 
@@ -21,5 +22,7 @@ public interface LoginService {
 
     ResponseResult<Map<String, String>> register(LoginBody user);
 
-    public ResponseResult<Map<String ,Object >> getInfo();
+    ResponseResult<Map<String ,Object >> getInfo();
+
+    ResponseResult<Boolean> registerBatch(MultipartFile file);
 }

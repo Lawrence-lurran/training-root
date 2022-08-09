@@ -16,7 +16,9 @@ import com.num.training.service.IUserRoleService;
 import com.num.training.service.LoginService;
 import com.num.training.service.UserService;
 import com.num.training.util.JwtUtil;
+import com.num.training.util.ReadExcelUtil;
 import com.num.training.util.RedisCache;
+import com.num.training.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,7 +26,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -119,6 +123,30 @@ public class LoginServiceImpl implements LoginService {
         data.put("roles",loginUser.getRoles());
         data.put("permissions",loginUser.getPermissions());
         return ResponseResult.success(data);
+    }
+
+    @Override
+    public ResponseResult<Boolean> registerBatch(MultipartFile file) {
+        try {
+            int count=0;
+            InputStream inputStream = file.getInputStream();
+            List<UserDO> list = ReadExcelUtil.createExcel(inputStream,false);
+            for (UserDO userDO : list) {
+                String username = userDO.getUsername();
+                if (StringUtils.isNotNull(username) && StringUtils.isNotEmpty(username)){
+                    String encodePassword=bCryptPasswordEncoder.encode(username);
+                    userDO.setPassword(encodePassword);
+                    boolean insert = userService.save(userDO);
+                    if (insert){
+                        count++;
+                    }
+                }
+            }
+            return ResponseResult.success("成功注册:"+count+" 条用户");
+        } catch (Exception e) {
+            throw new MyRuntimeException(ResultInfo.REGISTER_BATCH_ERROR);
+        }
+
     }
 
     /**

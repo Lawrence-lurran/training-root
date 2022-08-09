@@ -22,6 +22,7 @@ public enum ResultInfo {
     PASSWORD_ERROR("401009","用户名或密码错误"),
     NAME_NOT_EXIT_ERROR("401010","用户名不存在"),
     REGISTER_ERROR("401002","注册失败"),
+    REGISTER_BATCH_ERROR("401011","批量注册失败"),
     REPEAT_NAME_ERROR("401006","用户名已存在"),
     CAPTCHA_EXP_ERROR("401003","验证码过期"),
     CAPTCHA_WRONG_ERROR("401004","验证码错误"),
